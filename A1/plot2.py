@@ -33,27 +33,28 @@ ax.grid("on")
 #%% Plot b
 
 
-import numpy as np
-import matplotlib.pyplot as plt
-
-x0 = np.linspace(-2, 1, endpoint=False)
-x1 = np.linspace(1+ 1e-14, 2, endpoint = False)  #p.175
-x2 = np.linspace(2+ 1e-14, 5)
+x0 = np.linspace(-2, 1, 100, endpoint=False)
+x1 = np.linspace(1+ 1e-14, 2, 100, endpoint = False)  #p.175
+x2 = np.linspace(2+ 1e-14, 5, 100)
 
 
 nominator = lambda x: x**2 - x + 1
 denominator = lambda x: (x-1)*(x-2)
 f = lambda x: nominator(x) / denominator(x)
-
 fig, ax = plt.subplots()
+
+ax.plot(x0,f(x0), color="b", label="$f(x) = \\frac{x^2 - x + 1}{(x-1)(x-2)}$")
+ax.plot(x1,f(x1), color="b")
+ax.plot(x2,f(x2), color="b")
+
 ax.set_xlabel("x")
 ax.set_ylabel("y")
-
-ax.plot(x0,f(x0), color="r", label="$a$")
-ax.plot(x1,f(x1), color="b", label="$b$")
-ax.plot(x2,f(x2), color="b", label="$c$")
-
+ax.set_xlim([-2,5])
+ax.set_ylim([-20,20])
 ax.legend()
-ax.set_title("Plotting two functions in red and blue")
+ax.annotate('undefined x values', xy=(1, 15), xytext=(1, -4.8), arrowprops=dict(arrowstyle="->", color="k"))
+ax.annotate('', xy=(2.1, 15), xytext=(2, -3),
+            arrowprops=dict(arrowstyle='->', color='k'))
+ax.set_title("Plotting a rational function")
 ax.tick_params(labelsize=10)
 ax.grid("on")
