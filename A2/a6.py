@@ -27,13 +27,13 @@ cbar = fig.colorbar(pos)
 cbar.ax.tick_params(labelsize=14)
 
 while diff > tol:
-    if (step % 50 == 0):
+    if (step % 20 == 0):
         plt.clf()
         pos = plt.imshow(T1, cmap="hot")  # plot
         cbar = fig.colorbar(pos)
         cbar.ax.tick_params(labelsize=14)
         ax.tick_params(labelsize=14)
-        plt.pause(0.1)
+        plt.pause(0.01)
     step += 1
     for i in range(1, 99):  # loop over inner points
         for j in range(1, 99):
