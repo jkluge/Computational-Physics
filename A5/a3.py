@@ -29,5 +29,6 @@ ax.set_xlabel("Time t in [s]")
 ax.set_ylabel("Speed v in [m/s]")
 ax.legend()
 ax.grid()
+plt.savefig("plot_a3.eps")
 
 print("The terminal velocity is %f m/s" % (sol.y[0][-1]))

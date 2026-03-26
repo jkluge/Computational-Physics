@@ -23,9 +23,11 @@ sol = integrate.solve_ivp(
     f, [0, 20], [10, 0, 15, 0], t_eval=np.linspace(0, 20, 500))
 
 fig, ax = plt.subplots()
-ax.plot(sol.t, sol.y[0], label="y_0")
-ax.plot(sol.t, sol.y[2], label="y_1")
+ax.plot(sol.t, sol.y[0], label="$y_0$")
+ax.plot(sol.t, sol.y[2], label="$y_1$")
 ax.set_xlabel("t")
 ax.set_ylabel("y")
 ax.legend()
 ax.grid()
+
+plt.savefig("plot_a2.eps")
